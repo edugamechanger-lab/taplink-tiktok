@@ -133,6 +133,28 @@ h1 span{display:block;color:var(--violet)}
 @keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
 @keyframes blink{0%,92%,100%{transform:scaleY(0)}95%{transform:scaleY(1)}}
 
+/* ---------- НЕЙРУМ (сервис с тренажерами) ---------- */
+.service{
+  position:relative;display:flex;align-items:center;gap:20px;
+  background:#fff;border:2px solid var(--yellow);border-radius:28px;
+  padding:22px 24px;margin:-24px 0 48px;box-shadow:0 10px 26px rgba(246,199,96,.25)
+}
+.service .s-icon{
+  flex-shrink:0;display:grid;place-items:center;width:72px;height:72px;border-radius:22px;
+  background:#fff4d9;color:#be7b16;transform:rotate(-6deg)
+}
+.service .s-icon svg{width:42px;height:42px}
+.service .s-copy{flex:1;min-width:0}
+.service .s-tag{font-size:11px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:#a17b33}
+.service h3{font-weight:800;font-size:20px;line-height:1.2;letter-spacing:-.3px;margin:4px 0 6px}
+.service p{color:var(--muted);font-size:14px;line-height:1.45}
+.s-btn{
+  flex-shrink:0;display:inline-block;background:var(--navy);color:#fff;text-decoration:none;
+  font-weight:800;font-size:15px;padding:13px 20px;border-radius:14px;transform:rotate(1.5deg);transition:.18s
+}
+.s-btn:hover{transform:rotate(0) translateY(-2px);background:var(--violet)}
+.s-btn:focus-visible{outline:3px solid var(--violet);outline-offset:4px}
+
 /* ---------- TELEGRAM ---------- */
 .cta{background:var(--violet);color:#fff;padding:64px 0;overflow:hidden;text-align:center}
 .cta .wrap{position:relative;z-index:1}
@@ -167,6 +189,13 @@ footer span{color:var(--violet)}
   .feature{grid-template-columns:1fr;padding:24px 20px;gap:10px;text-align:left}
   .monster-wrap{width:170px;margin:0 auto}
   .bot-btn{width:100%;justify-content:center}
+  .service{flex-wrap:wrap;align-items:flex-start;padding:18px;gap:14px;margin-top:-28px}
+  .service h3{font-size:18px}
+  .s-btn{transform:rotate(.8deg)}
+  .service .s-icon{width:56px;height:56px;border-radius:17px}
+  .service .s-icon svg{width:32px;height:32px}
+  .service .s-copy{flex-basis:calc(100% - 72px)}
+  .s-btn{width:100%;text-align:center}
 }
 @media (prefers-reduced-motion:reduce){
   .monster,.monster .eye-lid{animation:none}
@@ -274,6 +303,23 @@ footer span{color:var(--violet)}
             <span>Ссылка откроет моего бота в Telegram. Нажмите «Запустить» (или «Start»), и бот сразу пришлет видеоурок.</span>
           </p>
         </div>
+      </div>
+
+      <!-- ===== НЕЙРУМ: бесплатные тренажеры ===== -->
+      <div class="service">
+        <span class="s-icon" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="22" height="15" rx="3" fill="#ffe3a0"/>
+            <path d="M9 24h10M14 19v5"/>
+            <path d="M8 10l2 2 4-4"/><path d="M16 9h4M16 13h3"/>
+          </svg>
+        </span>
+        <div class="s-copy">
+          <div class="s-tag">Бесплатный сервис</div>
+          <h3>Готовые тренажеры по любому предмету</h3>
+          <p>В Нейруме выбираете предмет, класс и тему и получаете тренажер с теорией и анимацией. Для работы на доске всем классом или самостоятельной практики.</p>
+        </div>
+        <a class="s-btn" href="https://neuroom.ru/s/ucmybcg" target="_blank" rel="noopener noreferrer">Найти тренажер ↗</a>
       </div>
 
       <div class="section-head">
