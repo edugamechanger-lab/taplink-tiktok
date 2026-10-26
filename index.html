@@ -155,6 +155,13 @@ h1 span{display:block;color:var(--violet)}
 .s-btn:hover{transform:rotate(0) translateY(-2px);background:var(--violet)}
 .s-btn:focus-visible{outline:3px solid var(--violet);outline-offset:4px}
 
+.card-imag .icon{background:#ffeef5;color:#c2557f}
+.card-imag .tag{color:#c2557f}
+.card-million .icon{background:#e9efff;color:#5e78c3}
+.card-million .tag{color:#5e78c3}
+.card-five .icon{background:#e6f7f1;color:#368b7b}
+.card-five .tag{color:#368b7b}
+
 /* ---------- TELEGRAM ---------- */
 .cta{background:var(--violet);color:#fff;padding:64px 0;overflow:hidden;text-align:center}
 .cta .wrap{position:relative;z-index:1}
@@ -329,8 +336,19 @@ footer span{color:var(--violet)}
 
       <nav class="links" aria-label="Материалы для учителя">
 
+        <!-- Детектив -->
+        <a class="card card-detective" href="https://t.me/+4XKcWlmjE700ZjU6" target="_blank" rel="noopener noreferrer">
+          <span class="icon" aria-hidden="true"><svg viewBox="0 0 28 28"><circle cx="11" cy="11" r="7" fill="#bfeee7"/><path d="m16 16 9 9" stroke="#ffb73f" stroke-width="4"/><path d="M8 9c0-2 2-3 4-3"/></svg></span>
+          <div class="copy">
+            <div class="tag">Игра на уроке · Telegram</div>
+            <div class="title">Детектив</div>
+            <div class="desc">Урок как расследование: улики нужно заработать знаниями.</div>
+          </div>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+
         <!-- Карта пробелов -->
-        <a class="card card-map" href="https://edugamechanger-lab.github.io/karta-probelov/" target="_blank" rel="noopener noreferrer">
+        <a class="card card-map" href="https://edugamechanger-lab.github.io/karta-probelov/?from=tiktok" target="_blank" rel="noopener noreferrer">
           <span class="icon" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="m3 6 7-3 8 3 7-3v19l-7 3-8-3-7 3z" fill="#ffe3a0"/><path d="M10 3v19M18 6v19"/><circle cx="14" cy="13" r="3" fill="#b5a4ff"/><path d="M14 16v3"/></svg></span>
           <div class="copy">
             <div class="tag">Пробелы в знаниях</div>
@@ -340,19 +358,8 @@ footer span{color:var(--violet)}
           <span class="arrow" aria-hidden="true">↗</span>
         </a>
 
-        <!-- Детектив -->
-        <a class="card card-detective" href="https://t.me/margoiai/507" target="_blank" rel="noopener noreferrer">
-          <span class="icon" aria-hidden="true"><svg viewBox="0 0 28 28"><circle cx="11" cy="11" r="7" fill="#bfeee7"/><path d="m16 16 9 9" stroke="#ffb73f" stroke-width="4"/><path d="M8 9c0-2 2-3 4-3"/></svg></span>
-          <div class="copy">
-            <div class="tag">Расследование · пост в Telegram</div>
-            <div class="title">Детектив</div>
-            <div class="desc">Добавим уроку немного интриги.</div>
-          </div>
-          <span class="arrow" aria-hidden="true">↗</span>
-        </a>
-
-        <!-- Домашняя работа -->
-        <a class="card card-homework" href="https://edugamechanger-lab.github.io/domashka_s_ii/" target="_blank" rel="noopener noreferrer">
+        <!-- Домашка, которую нельзя сделать одним запросом к ИИ -->
+        <a class="card card-homework" href="https://edugamechanger-lab.github.io/domashka_s_ii/?from=tiktok" target="_blank" rel="noopener noreferrer">
           <span class="icon" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M6 3h15v22H6z" fill="#ffdf82"/><path d="M10 9h7M10 14h7M10 19h4"/></svg></span>
           <div class="copy">
             <div class="tag">Домашняя работа</div>
@@ -362,8 +369,8 @@ footer span{color:var(--violet)}
           <span class="arrow" aria-hidden="true">↗</span>
         </a>
 
-        <!-- До урока 10 минут -->
-        <a class="card card-time" href="https://edugamechanger-lab.github.io/10_minut_do_uroka/" target="_blank" rel="noopener noreferrer">
+        <!-- До урока 10 минут. Что делаем? -->
+        <a class="card card-time" href="https://edugamechanger-lab.github.io/10_minut_do_uroka/?from=tiktok" target="_blank" rel="noopener noreferrer">
           <span class="icon" aria-hidden="true"><svg viewBox="0 0 28 28"><circle cx="14" cy="15" r="10" fill="#e1d8ff"/><path d="M14 9v6l4 2M10 2h8"/></svg></span>
           <div class="copy">
             <div class="tag">Быстрая подготовка</div>
@@ -373,53 +380,18 @@ footer span{color:var(--violet)}
           <span class="arrow" aria-hidden="true">↗</span>
         </a>
 
-        <!-- ===== СКРЫТЫ ДО ВЫХОДА ВИЗУАЛА. Чтобы вернуть карточку, уберите обертку комментария ===== -->
-        <!-- СКРЫТО: Придумай задание, которого я еще не видела
-        <a class="card card-ideas" href="https://edugamechanger-lab.github.io/1_zadaniye_5_formatov/" target="_blank" rel="noopener noreferrer">
-          <span class="icon" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="m14 3 3 7 8 4-8 3-3 8-3-8-8-3 8-4z" fill="#cbb3ff"/></svg></span>
+        <!-- ВЫКЛЮЧЕНО:
+         Имаджинариум 
+        <a class="card card-imag" href="https://t.me/+GPFJBLITlRo2NjUy" target="_blank" rel="noopener noreferrer">
+          <span class="icon" aria-hidden="true"><svg viewBox="0 0 28 28"><rect x="3" y="6" width="13" height="18" rx="2" fill="#ffd6e7" transform="rotate(-8 9 15)"/><rect x="11" y="4" width="13" height="18" rx="2" fill="#fff" /><path d="M14 17l3-4 2 2 2-3 2 5z" fill="#f2a5c4" stroke="none"/><circle cx="16" cy="9" r="1.6" fill="#F6C760" stroke="none"/><rect x="11" y="4" width="13" height="18" rx="2"/></svg></span>
           <div class="copy">
-            <div class="tag">Новые форматы</div>
-            <div class="title">Придумай задание, которого я еще не видела</div>
-            <div class="desc">Когда хочется выйти за рамки привычных упражнений.</div>
+            <div class="tag">Игра на уроке · Telegram</div>
+            <div class="title">Имаджинариум</div>
+            <div class="desc">Игра в ассоциации по картинкам на материале урока.</div>
           </div>
           <span class="arrow" aria-hidden="true">↗</span>
         </a>
         -->
-        <!-- СКРЫТО: Страница учебника → в урок
-        <a class="card card-book" href="https://edugamechanger-lab.github.io/Stranitsa_uchebnika_v_urok/" target="_blank" rel="noopener noreferrer">
-          <span class="icon" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M14 7C10 4 5 4 2 5v18c4-1 8-1 12 2 4-3 8-3 12-2V5c-3-1-8-1-12 2v18" fill="#b8e5d6"/></svg></span>
-          <div class="copy">
-            <div class="tag">Работа с учебником</div>
-            <div class="title">Страница учебника → в урок</div>
-            <div class="desc">Отправная точка: материал, который уже под рукой.</div>
-          </div>
-          <span class="arrow" aria-hidden="true">↗</span>
-        </a>
-        -->
-        <!-- СКРЫТО: Урок из ошибок
-        <a class="card card-errors" href="https://edugamechanger-lab.github.io/Urok_iz_oshibok/" target="_blank" rel="noopener noreferrer">
-          <span class="icon" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="m5 8 4 4 7-8M5 20l4 4 7-8M20 9h5M20 21h5"/></svg></span>
-          <div class="copy">
-            <div class="tag">Работа с ошибками</div>
-            <div class="title">Урок из ошибок</div>
-            <div class="desc">Ошибки как повод разобраться, обсудить и научиться.</div>
-          </div>
-          <span class="arrow" aria-hidden="true">↗</span>
-        </a>
-        -->
-        <!-- СКРЫТО: Один тест, три класса
-        <a class="card card-test" href="https://edugamechanger-lab.github.io/odin_test_tri_klassa/" target="_blank" rel="noopener noreferrer">
-          <span class="icon" aria-hidden="true"><svg viewBox="0 0 28 28"><rect x="3" y="3" width="9" height="9" rx="2" fill="#c9d6ff"/><rect x="16" y="3" width="9" height="9" rx="2" fill="#c9d6ff"/><rect x="9" y="17" width="10" height="9" rx="2" fill="#c9d6ff"/></svg></span>
-          <div class="copy">
-            <div class="tag">Разные классы</div>
-            <div class="title">Один тест, три класса</div>
-            <div class="desc">Когда один материал нужен для разных классов.</div>
-          </div>
-          <span class="arrow" aria-hidden="true">↗</span>
-        </a>
-        -->
-
-        <!-- НОВЫЙ МАТЕРИАЛ: скопируйте любую карточку и вставьте после последней карточки. Счетчик обновится сам. -->
 
       </nav>
     </div>
