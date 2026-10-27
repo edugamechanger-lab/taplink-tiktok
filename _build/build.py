@@ -11,6 +11,10 @@ GH = 'https://edugamechanger-lab.github.io'
 # page: ведет на страницу с промптом (+ ?from=площадка, страница сама подставит TG-ссылку)
 # tg:   ведет сразу в Telegram (ссылка своя для каждой площадки, см. PLATFORMS)
 CARDS = {
+  'halloween': dict(page=f'{GH}/halloween-escape-room/', cls='card-halloween',
+      tag='Игра на уроке · Квест', title='Halloween Escape Room',
+      desc='Квест-комната по вашей теме: 4 готовые комнаты и метапромпт.',
+      icon='<path d="M14 6c-1-2 0-4 2-4" stroke="#39816C"/><ellipse cx="9" cy="16" rx="6" ry="8" fill="#ffb26b"/><ellipse cx="19" cy="16" rx="6" ry="8" fill="#ffb26b"/><ellipse cx="14" cy="16" rx="5" ry="9" fill="#ffc48a"/><path d="M10 14l2 2h-3zM18 14l-2 2h3zM10 20c2 2 6 2 8 0"/>'),
   'map': dict(page=f'{GH}/karta-probelov/', cls='card-map',
       tag='Пробелы в знаниях', title='Карта пробелов',
       desc='Найдите, что стоит повторить и разобрать на уроке.',
@@ -53,7 +57,7 @@ PLATFORMS = {
       monster='https://t.me/EdhackMargo_bot?start=dl-1792922701a5f233ef4024',
       channel='https://t.me/+o4L5wq8P-pNlMWZi',
       neuroom=True,
-      cards=['detective','map','homework','time','imaginarium'],
+      cards=['halloween','detective','map','homework','time','imaginarium'],
       hidden=['imaginarium'],
       tg={'detective':'https://t.me/+4XKcWlmjE700ZjU6',
           'imaginarium':'https://t.me/+GPFJBLITlRo2NjUy'}),
@@ -61,7 +65,7 @@ PLATFORMS = {
       monster='https://t.me/EdhackMargo_bot?start=dl-1792932694453',
       channel='https://t.me/+PmnclSUUT4MzMjNi',   # TODO: своя ссылка канала для Instagram
       neuroom=False,
-      cards=['map','five','imaginarium','millionaire','time','homework','book','detective'],
+      cards=['halloween','map','five','imaginarium','millionaire','time','homework','book','detective'],
       hidden=[],
       tg={'five':'https://t.me/+b4uRO8E9KEBkODky',
           'imaginarium':'https://t.me/+GFF_1wtA4MVjYzgy',
@@ -71,7 +75,7 @@ PLATFORMS = {
       monster='https://t.me/EdhackMargo_bot?start=dl-1792925569736e9f5ed524',
       channel='https://t.me/+PmnclSUUT4MzMjNi',   # TODO: своя ссылка канала для YouTube
       neuroom=False,
-      cards=['imaginarium','detective','book'],
+      cards=['halloween','imaginarium','detective','book'],
       hidden=[],
       tg={'imaginarium':'https://t.me/+yrpe1eRi3tw4NjIy',
           'detective':'https://t.me/+-5Xo3smHAx44OWJi'}),
@@ -84,6 +88,8 @@ EXTRA_CSS = '''
 .card-million .tag{color:#5e78c3}
 .card-five .icon{background:#e6f7f1;color:#368b7b}
 .card-five .tag{color:#368b7b}
+.card-halloween .icon{background:#fff0e3;color:#c0611f}
+.card-halloween .tag{color:#c0611f}
 '''
 
 def card_html(key, src, tg):
