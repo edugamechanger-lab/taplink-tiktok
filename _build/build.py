@@ -49,6 +49,9 @@ CARDS = {
       icon='<rect x="3" y="5" width="22" height="19" rx="3" fill="#e6f7f1"/><path d="M3 10h22M9 3v4M19 3v4"/><path d="M9 15h3M15 15h4M9 19h3"/>'),
 }
 
+# ---------- ИДЕИ ДЛЯ УРОКА: одинаковые на всех площадках ----------
+LESSON_CARDS = ['halloween','map','five','imaginarium','millionaire','time','homework','book','detective']
+
 # ---------- ПЛОЩАДКИ ----------
 # cards: порядок карточек; tg: ссылки для карточек, ведущих сразу в Telegram
 # hidden: карточки, которые пока выключены (появятся, когда уберешь из списка)
@@ -57,15 +60,15 @@ PLATFORMS = {
       monster='https://t.me/EdhackMargo_bot?start=dl-1792922701a5f233ef4024',
       channel='https://t.me/+o4L5wq8P-pNlMWZi',
       neuroom=True,
-      cards=['halloween','detective','map','homework','time','imaginarium'],
-      hidden=['imaginarium'],
+      cards=LESSON_CARDS,
+      hidden=[],
       tg={'detective':'https://t.me/+4XKcWlmjE700ZjU6',
           'imaginarium':'https://t.me/+GPFJBLITlRo2NjUy'}),
   'insta': dict(repo='taplink-instagram',
       monster='https://t.me/EdhackMargo_bot?start=dl-1792932694453',
       channel='https://t.me/+PmnclSUUT4MzMjNi',   # TODO: своя ссылка канала для Instagram
       neuroom=False,
-      cards=['map','five','imaginarium','millionaire','time','homework','book','detective'],
+      cards=LESSON_CARDS,
       hidden=[],
       tg={'five':'https://t.me/+b4uRO8E9KEBkODky',
           'imaginarium':'https://t.me/+GFF_1wtA4MVjYzgy',
@@ -75,7 +78,7 @@ PLATFORMS = {
       monster='https://t.me/EdhackMargo_bot?start=dl-1792925569736e9f5ed524',
       channel='https://t.me/+PmnclSUUT4MzMjNi',   # TODO: своя ссылка канала для YouTube
       neuroom=False,
-      cards=['halloween','imaginarium','detective','book'],
+      cards=LESSON_CARDS,
       hidden=[],
       tg={'imaginarium':'https://t.me/+yrpe1eRi3tw4NjIy',
           'detective':'https://t.me/+-5Xo3smHAx44OWJi'}),
@@ -94,7 +97,7 @@ EXTRA_CSS = '''
 
 def card_html(key, src, tg):
     c = CARDS[key]
-    href = c['page'] + '?from=' + src if 'page' in c else tg[key]
+    href = c['page'] + '?from=' + src if 'page' in c else tg.get(key) or PLATFORMS['insta']['tg'][key]
     return f'''<!-- {c['title']} -->
         <a class="card {c['cls']}" href="{href}" target="_blank" rel="noopener noreferrer">
           <span class="icon" aria-hidden="true"><svg viewBox="0 0 28 28">{c['icon']}</svg></span>
@@ -114,7 +117,9 @@ def build(src, out_dir):
     shown, hidden = [], []
     for k in P['cards']:
         if 'page' not in CARDS[k] and k not in P['tg']:
-            sys.exit(f'{src}: нет TG-ссылки для карточки {k}')
+            if k not in PLATFORMS['insta']['tg']:
+                sys.exit(f'{src}: нет TG-ссылки для карточки {k}')
+            print(f'  ! {src}: для «{CARDS[k]["title"]}» нет своей ссылки, временно стоит ссылка Instagram')
         h = card_html(k, src, P['tg'])
         if k in P['hidden']:
             hidden.append('        <!-- ВЫКЛЮЧЕНО:\n        ' + h.replace('<!--', '').replace('-->', '') + '\n        -->')
