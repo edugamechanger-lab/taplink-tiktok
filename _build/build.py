@@ -63,10 +63,12 @@ PLATFORMS = {
       cards=LESSON_CARDS,
       hidden=[],
       tg={'detective':'https://t.me/+4XKcWlmjE700ZjU6',
+          'five':'https://t.me/+Kjfa4eD-g3lhNGYy',
+          'millionaire':'https://t.me/+39jDPG0P2fg1YmMy',
           'imaginarium':'https://t.me/+GPFJBLITlRo2NjUy'}),
   'insta': dict(repo='taplink-instagram',
       monster='https://t.me/EdhackMargo_bot?start=dl-1792932694453',
-      channel='https://t.me/+PmnclSUUT4MzMjNi',   # TODO: своя ссылка канала для Instagram
+      channel='https://t.me/+7sPl4z8dBiw2YTVi',
       neuroom=False,
       cards=LESSON_CARDS,
       hidden=[],
@@ -76,11 +78,13 @@ PLATFORMS = {
           'detective':'https://t.me/+eUrjpwzRdyRlZTMy'}),
   'youtube': dict(repo='taplink-youtube',
       monster='https://t.me/EdhackMargo_bot?start=dl-1792925569736e9f5ed524',
-      channel='https://t.me/+PmnclSUUT4MzMjNi',   # TODO: своя ссылка канала для YouTube
+      channel='https://t.me/+hYBj5MtyjL0zMjMy',
       neuroom=False,
       cards=LESSON_CARDS,
       hidden=[],
       tg={'imaginarium':'https://t.me/+yrpe1eRi3tw4NjIy',
+          'five':'https://t.me/+82FbQioWJJQ0NjUy',
+          'millionaire':'https://t.me/+qPRs5BzBELkyYmZi',
           'detective':'https://t.me/+-5Xo3smHAx44OWJi'}),
 }
 
