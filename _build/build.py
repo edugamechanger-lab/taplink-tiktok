@@ -65,7 +65,7 @@ PLATFORMS = {
       monster='https://t.me/EdhackMargo_bot?start=dl-1792932694453',
       channel='https://t.me/+PmnclSUUT4MzMjNi',   # TODO: своя ссылка канала для Instagram
       neuroom=False,
-      cards=['halloween','map','five','imaginarium','millionaire','time','homework','book','detective'],
+      cards=['map','five','imaginarium','millionaire','time','homework','book','detective'],
       hidden=[],
       tg={'five':'https://t.me/+b4uRO8E9KEBkODky',
           'imaginarium':'https://t.me/+GFF_1wtA4MVjYzgy',
