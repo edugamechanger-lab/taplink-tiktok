@@ -52,6 +52,9 @@ CARDS = {
 # ---------- ИДЕИ ДЛЯ УРОКА: одинаковые на всех площадках ----------
 LESSON_CARDS = ['halloween','map','five','imaginarium','millionaire','time','homework','book','detective']
 
+# ---------- ПРАКТИКУМ «От идеи до интерактива» (плашка под монстриком) ----------
+PRACTICUM_URL = 'https://edhacking.getcourse.ru/vibecoding-interactive-idea'
+
 # ---------- ПЛОЩАДКИ ----------
 # cards: порядок карточек; tg: ссылки для карточек, ведущих сразу в Telegram
 # hidden: карточки, которые пока выключены (появятся, когда уберешь из списка)
@@ -60,6 +63,7 @@ PLATFORMS = {
       monster='https://t.me/EdhackMargo_bot?start=dl-1792672868157bf8b026c1',
       channel='https://t.me/+o4L5wq8P-pNlMWZi',
       neuroom=True,
+      practicum=True,
       cards=LESSON_CARDS,
       hidden=[],
       tg={'detective':'https://t.me/+4XKcWlmjE700ZjU6',
@@ -70,6 +74,7 @@ PLATFORMS = {
       monster='https://t.me/EdhackMargo_bot?start=dl-1792932694453',
       channel='https://t.me/+7sPl4z8dBiw2YTVi',
       neuroom=False,
+      practicum=False,
       cards=LESSON_CARDS,
       hidden=[],
       tg={'five':'https://t.me/+b4uRO8E9KEBkODky',
@@ -80,6 +85,7 @@ PLATFORMS = {
       monster='https://t.me/EdhackMargo_bot?start=dl-1793236235442',
       channel='https://t.me/+hYBj5MtyjL0zMjMy',
       neuroom=False,
+      practicum=True,
       cards=LESSON_CARDS,
       hidden=[],
       tg={'imaginarium':'https://t.me/+yrpe1eRi3tw4NjIy',
@@ -117,6 +123,8 @@ def build(src, out_dir):
     here = os.path.dirname(os.path.abspath(__file__))
     t = open(os.path.join(here, 'template.html'), encoding='utf-8').read()
     neu = open(os.path.join(here, 'neuroom.html'), encoding='utf-8').read()
+    pr = open(os.path.join(here, 'practicum.html'), encoding='utf-8').read().replace(
+        '{{PRACTICUM_URL}}', PRACTICUM_URL + '?utm_source=' + src + '&utm_medium=taplink&utm_campaign=ot-idei-do-interaktiva')
     P = PLATFORMS[src]
     shown, hidden = [], []
     for k in P['cards']:
@@ -135,6 +143,7 @@ def build(src, out_dir):
     html = (t.replace('{{CARDS}}', nav)
              .replace('{{MONSTER}}', P['monster'])
              .replace('{{CHANNEL}}', P['channel'])
+             .replace('{{PRACTICUM}}', pr if P.get('practicum') else '')
              .replace('{{NEUROOM}}', neu if P['neuroom'] else '')
              .replace('/* ---------- TELEGRAM ---------- */', EXTRA_CSS.strip() + '\n\n/* ---------- TELEGRAM ---------- */', 1))
     assert '{{' not in html

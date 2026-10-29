@@ -1,0 +1,34 @@
+      <!-- ===== ПРАКТИКУМ «ОТ ИДЕИ ДО ИНТЕРАКТИВА» ===== -->
+      <div class="practicum">
+        <span class="d" aria-hidden="true" style="right:18px;top:16px;width:40px;height:40px;color:#F6C760"><svg><use href="#sparkle"/></svg></span>
+        <span class="d" aria-hidden="true" style="right:-16px;bottom:-10px;width:110px;height:76px;color:rgba(255,255,255,.18)"><svg><use href="#squiggle"/></svg></span>
+        <div class="pr-top">
+          <span class="pr-badge">Практикум · 1 и 8 ноября</span>
+          <span class="pr-count" id="pr-count" hidden></span>
+        </div>
+        <h3>От идеи до интерактива</h3>
+        <p class="pr-sub">Двухдневный онлайн-практикум по вайб-кодингу для учителей. Создадите свои интерактивы для уроков с помощью ИИ, даже если никогда не писали код.</p>
+        <ul class="pr-list">
+          <li><b>Симулятор</b>: ученик меняет параметры и видит последствия</li>
+          <li><b>Квест «Побег из класса»</b> по вашей теме</li>
+          <li><b>Диагностика знаний</b> с наглядными результатами</li>
+          <li><b>Тренажер</b>, который подбирает задания под ошибки ученика</li>
+        </ul>
+        <p class="pr-meta">Zoom, 12:00 мск · записи на полгода · от 2 500 ₽</p>
+        <a class="pr-btn" href="{{PRACTICUM_URL}}" target="_blank" rel="noopener noreferrer">Выбрать тариф ↗</a>
+      </div>
+      <script>
+        (function(){
+          var el = document.getElementById('pr-count'); if (!el) return;
+          var now = Date.now(), MSK = 3*36e5,
+              d1 = Date.UTC(2026,10,1,9,0), d2 = Date.UTC(2026,10,8,9,0);
+          function day(t){ return Math.floor((t + MSK) / 864e5); }
+          function word(n){ var a=n%10,b=n%100; return (a===1&&b!==11)?'день':(a>=2&&a<=4&&(b<12||b>14))?'дня':'дней'; }
+          var txt, n = day(d1) - day(now);
+          if (now < d1) txt = n === 0 ? 'Старт сегодня в 12:00 мск' : n === 1 ? 'Старт завтра' : 'Старт через ' + n + ' ' + word(n);
+          else if (now < d2) txt = 'Второе занятие 8 ноября';
+          else txt = 'Доступны записи';
+          el.textContent = txt; el.hidden = false;
+        })();
+      </script>
+

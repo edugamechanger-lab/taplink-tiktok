@@ -155,6 +155,24 @@ h1 span{display:block;color:var(--violet)}
 .s-btn:hover{transform:rotate(0) translateY(-2px);background:var(--violet)}
 .s-btn:focus-visible{outline:3px solid var(--violet);outline-offset:4px}
 
+/* ---------- ПРАКТИКУМ ---------- */
+.practicum{
+  position:relative;overflow:hidden;background:var(--violet);color:#fff;border-radius:32px;
+  padding:30px 32px;margin:-24px 0 48px;box-shadow:0 18px 40px rgba(95,92,242,.35)
+}
+.pr-top{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.pr-badge{background:#fff;color:var(--violet);font-weight:800;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;padding:7px 12px;border-radius:10px;transform:rotate(-2deg)}
+.pr-count{background:var(--yellow);color:var(--navy);font-weight:800;font-size:13px;padding:7px 12px;border-radius:10px;transform:rotate(1.5deg)}
+.practicum h3{position:relative;font-weight:800;font-size:clamp(26px,4.4vw,36px);line-height:1.1;letter-spacing:-.8px;margin:16px 0 10px}
+.pr-sub{position:relative;color:#e8e7ff;font-size:16px;max-width:620px}
+.pr-list{position:relative;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0 16px}
+.pr-list li{background:rgba(255,255,255,.12);border-radius:14px;padding:11px 14px;font-size:14px;line-height:1.4;color:#e8e7ff}
+.pr-list b{color:#fff}
+.pr-meta{position:relative;font-size:14px;color:#d6d4ff}
+.pr-btn{position:relative;display:inline-block;margin-top:18px;background:var(--yellow);color:var(--navy);text-decoration:none;font-weight:800;font-size:17px;padding:15px 26px;border-radius:16px;transform:rotate(-1.5deg);transition:.18s;box-shadow:0 10px 22px rgba(20,18,80,.25)}
+.pr-btn:hover{transform:rotate(0) translateY(-2px);background:#fff}
+.pr-btn:focus-visible{outline:3px solid #fff;outline-offset:4px}
+
 .card-imag .icon{background:#ffeef5;color:#c2557f}
 .card-imag .tag{color:#c2557f}
 .card-million .icon{background:#e9efff;color:#5e78c3}
@@ -198,6 +216,9 @@ footer span{color:var(--violet)}
   .feature{grid-template-columns:1fr;padding:24px 20px;gap:10px;text-align:left}
   .monster-wrap{width:170px;margin:0 auto}
   .bot-btn{width:100%;justify-content:center}
+  .practicum{padding:24px 20px;margin-top:-28px;border-radius:28px}
+  .pr-list{grid-template-columns:1fr}
+  .pr-btn{display:block;text-align:center}
   .service{flex-wrap:wrap;align-items:flex-start;padding:18px;gap:14px;margin-top:-28px}
   .service h3{font-size:18px}
   .s-btn{transform:rotate(.8deg)}
@@ -313,6 +334,40 @@ footer span{color:var(--violet)}
           </p>
         </div>
       </div>
+
+      <!-- ===== ПРАКТИКУМ «ОТ ИДЕИ ДО ИНТЕРАКТИВА» ===== -->
+      <div class="practicum">
+        <span class="d" aria-hidden="true" style="right:18px;top:16px;width:40px;height:40px;color:#F6C760"><svg><use href="#sparkle"/></svg></span>
+        <span class="d" aria-hidden="true" style="right:-16px;bottom:-10px;width:110px;height:76px;color:rgba(255,255,255,.18)"><svg><use href="#squiggle"/></svg></span>
+        <div class="pr-top">
+          <span class="pr-badge">Практикум · 1 и 8 ноября</span>
+          <span class="pr-count" id="pr-count" hidden></span>
+        </div>
+        <h3>От идеи до интерактива</h3>
+        <p class="pr-sub">Двухдневный онлайн-практикум по вайб-кодингу для учителей. Создадите свои интерактивы для уроков с помощью ИИ, даже если никогда не писали код.</p>
+        <ul class="pr-list">
+          <li><b>Симулятор</b>: ученик меняет параметры и видит последствия</li>
+          <li><b>Квест «Побег из класса»</b> по вашей теме</li>
+          <li><b>Диагностика знаний</b> с наглядными результатами</li>
+          <li><b>Тренажер</b>, который подбирает задания под ошибки ученика</li>
+        </ul>
+        <p class="pr-meta">Zoom, 12:00 мск · записи на полгода · от 2 500 ₽</p>
+        <a class="pr-btn" href="https://edhacking.getcourse.ru/vibecoding-interactive-idea?utm_source=tiktok&utm_medium=taplink&utm_campaign=ot-idei-do-interaktiva" target="_blank" rel="noopener noreferrer">Выбрать тариф ↗</a>
+      </div>
+      <script>
+        (function(){
+          var el = document.getElementById('pr-count'); if (!el) return;
+          var now = Date.now(), MSK = 3*36e5,
+              d1 = Date.UTC(2026,10,1,9,0), d2 = Date.UTC(2026,10,8,9,0);
+          function day(t){ return Math.floor((t + MSK) / 864e5); }
+          function word(n){ var a=n%10,b=n%100; return (a===1&&b!==11)?'день':(a>=2&&a<=4&&(b<12||b>14))?'дня':'дней'; }
+          var txt, n = day(d1) - day(now);
+          if (now < d1) txt = n === 0 ? 'Старт сегодня в 12:00 мск' : n === 1 ? 'Старт завтра' : 'Старт через ' + n + ' ' + word(n);
+          else if (now < d2) txt = 'Второе занятие 8 ноября';
+          else txt = 'Доступны записи';
+          el.textContent = txt; el.hidden = false;
+        })();
+      </script>
 
       <!-- ===== НЕЙРУМ: бесплатные тренажеры ===== -->
       <div class="service">
