@@ -53,17 +53,17 @@ CARDS = {
 LESSON_CARDS = ['halloween','map','five','imaginarium','millionaire','time','homework','book','detective']
 
 # ---------- ПРАКТИКУМ «От идеи до интерактива» (плашка под монстриком) ----------
-PRACTICUM_URL = 'https://edhacking.getcourse.ru/vibecoding-interactive-idea'
+# у каждой площадки своя ссылка на бота: practicum='...' в PLATFORMS (False = плашки нет)
 
 # ---------- ПЛОЩАДКИ ----------
 # cards: порядок карточек; tg: ссылки для карточек, ведущих сразу в Telegram
 # hidden: карточки, которые пока выключены (появятся, когда уберешь из списка)
 PLATFORMS = {
   'tiktok': dict(repo='taplink-tiktok',
-      monster='https://t.me/EdhackMargo_bot?start=dl-1792672868157bf8b026c1',
+      monster='https://t.me/EdhackMargo_bot?start=dl-1792922701a5f233ef4024',
       channel='https://t.me/+o4L5wq8P-pNlMWZi',
       neuroom=True,
-      practicum=True,
+      practicum='https://t.me/EdhackMargo_bot?start=dl-1792672868157bf8b026c1',
       cards=LESSON_CARDS,
       hidden=[],
       tg={'detective':'https://t.me/+4XKcWlmjE700ZjU6',
@@ -82,10 +82,10 @@ PLATFORMS = {
           'millionaire':'https://t.me/+1Nvd-bykiX4wMzky',
           'detective':'https://t.me/+eUrjpwzRdyRlZTMy'}),
   'youtube': dict(repo='taplink-youtube',
-      monster='https://t.me/EdhackMargo_bot?start=dl-1793236235442',
+      monster='https://t.me/EdhackMargo_bot?start=dl-1792925569736e9f5ed524',
       channel='https://t.me/+hYBj5MtyjL0zMjMy',
       neuroom=False,
-      practicum=True,
+      practicum='https://t.me/EdhackMargo_bot?start=dl-1793236235442',
       cards=LESSON_CARDS,
       hidden=[],
       tg={'imaginarium':'https://t.me/+yrpe1eRi3tw4NjIy',
@@ -123,8 +123,9 @@ def build(src, out_dir):
     here = os.path.dirname(os.path.abspath(__file__))
     t = open(os.path.join(here, 'template.html'), encoding='utf-8').read()
     neu = open(os.path.join(here, 'neuroom.html'), encoding='utf-8').read()
+    P = PLATFORMS[src]
     pr = open(os.path.join(here, 'practicum.html'), encoding='utf-8').read().replace(
-        '{{PRACTICUM_URL}}', PRACTICUM_URL + '?utm_source=' + src + '&utm_medium=taplink&utm_campaign=ot-idei-do-interaktiva')
+        '{{PRACTICUM_URL}}', P.get('practicum') or '')
     P = PLATFORMS[src]
     shown, hidden = [], []
     for k in P['cards']:
