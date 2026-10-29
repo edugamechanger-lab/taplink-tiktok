@@ -57,7 +57,7 @@ LESSON_CARDS = ['halloween','map','five','imaginarium','millionaire','time','hom
 # hidden: карточки, которые пока выключены (появятся, когда уберешь из списка)
 PLATFORMS = {
   'tiktok': dict(repo='taplink-tiktok',
-      monster='https://t.me/EdhackMargo_bot?start=dl-1792922701a5f233ef4024',
+      monster='https://t.me/EdhackMargo_bot?start=dl-1792672868157bf8b026c1',
       channel='https://t.me/+o4L5wq8P-pNlMWZi',
       neuroom=True,
       cards=LESSON_CARDS,
@@ -77,7 +77,7 @@ PLATFORMS = {
           'millionaire':'https://t.me/+1Nvd-bykiX4wMzky',
           'detective':'https://t.me/+eUrjpwzRdyRlZTMy'}),
   'youtube': dict(repo='taplink-youtube',
-      monster='https://t.me/EdhackMargo_bot?start=dl-1792925569736e9f5ed524',
+      monster='https://t.me/EdhackMargo_bot?start=dl-1793236235442',
       channel='https://t.me/+hYBj5MtyjL0zMjMy',
       neuroom=False,
       cards=LESSON_CARDS,
