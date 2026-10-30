@@ -74,7 +74,7 @@ PLATFORMS = {
       monster='https://t.me/EdhackMargo_bot?start=dl-1792932694453',
       channel='https://t.me/+7sPl4z8dBiw2YTVi',
       neuroom=False,
-      practicum=False,
+      practicum='https://edhacking.getcourse.ru/vibecoding-interactive-idea?utm_source=instagram&utm_medium=taplink&utm_campaign=ot-idei-do-interaktiva',
       cards=LESSON_CARDS,
       hidden=[],
       tg={'five':'https://t.me/+b4uRO8E9KEBkODky',
