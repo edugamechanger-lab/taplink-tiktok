@@ -55,6 +55,9 @@ LESSON_CARDS = ['halloween','map','five','imaginarium','millionaire','time','hom
 # ---------- ПРАКТИКУМ «От идеи до интерактива» (плашка под монстриком) ----------
 # у каждой площадки своя ссылка на бота: practicum='...' в PLATFORMS (False = плашки нет)
 
+# ---------- ВИДЕОУРОК НА YOUTUBE (плашка под практикумом, во всех таплинках; None = убрать) ----------
+VIDEO_ID = 'STZqrAr_ktE'
+
 # ---------- ПЛОЩАДКИ ----------
 # cards: порядок карточек; tg: ссылки для карточек, ведущих сразу в Telegram
 # hidden: карточки, которые пока выключены (появятся, когда уберешь из списка)
@@ -145,6 +148,8 @@ def build(src, out_dir):
              .replace('{{MONSTER}}', P['monster'])
              .replace('{{CHANNEL}}', P['channel'])
              .replace('{{PRACTICUM}}', pr if P.get('practicum') else '')
+             .replace('{{VIDEO}}', open(os.path.join(here, 'video.html'), encoding='utf-8').read()
+                      .replace('{{VIDEO_URL}}', 'https://youtu.be/' + VIDEO_ID).replace('{{VIDEO_ID}}', VIDEO_ID) if VIDEO_ID else '')
              .replace('{{NEUROOM}}', neu if P['neuroom'] else '')
              .replace('/* ---------- TELEGRAM ---------- */', EXTRA_CSS.strip() + '\n\n/* ---------- TELEGRAM ---------- */', 1))
     assert '{{' not in html
