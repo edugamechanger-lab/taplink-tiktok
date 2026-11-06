@@ -122,6 +122,9 @@ def card_html(key, src, tg):
           <span class="arrow" aria-hidden="true">↗</span>
         </a>'''
 
+import time
+BUILD_ID = time.strftime('%Y%m%d%H%M%S')
+
 def build(src, out_dir):
     here = os.path.dirname(os.path.abspath(__file__))
     t = open(os.path.join(here, 'template.html'), encoding='utf-8').read()
@@ -147,6 +150,7 @@ def build(src, out_dir):
     html = (t.replace('{{CARDS}}', nav)
              .replace('{{MONSTER}}', P['monster'])
              .replace('{{CHANNEL}}', P['channel'])
+             .replace('{{BUILD}}', BUILD_ID)
              .replace('{{PRACTICUM}}', pr if P.get('practicum') else '')
              .replace('{{VIDEO}}', open(os.path.join(here, 'video.html'), encoding='utf-8').read()
                       .replace('{{VIDEO_URL}}', 'https://youtu.be/' + VIDEO_ID).replace('{{VIDEO_ID}}', VIDEO_ID) if VIDEO_ID else '')

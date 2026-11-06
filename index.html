@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="ru">
 <head>
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta name="taplink-build" content="20261106092205">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#5F5CF2">
@@ -556,6 +558,23 @@ footer span{color:var(--violet)}
     function swap(){ var s=document.createElement('span'); s.className=img.className+' missing'; s.textContent=img.dataset.emoji||'🙂'; img.replaceWith(s); }
     if (img.complete && !img.naturalWidth) swap(); else img.addEventListener('error', swap);
   });
+</script>
+<script>
+  /* Встроенные браузеры (TikTok, Instagram) держат старую копию страницы.
+     Сверяем номер сборки с сервером; если вышла новая, перезагружаемся. */
+  (function(){
+    var BUILD = '20261106092205';  /* номер сборки, тот же, что в meta taplink-build */
+    try {
+      fetch(location.pathname + '?nocache=' + Date.now(), {cache:'no-store'})
+        .then(function(r){ return r.ok ? r.text() : ''; })
+        .then(function(h){
+          var m = h.match(/name="taplink-build" content="(\d+)"/);
+          if (m && m[1] !== BUILD) {
+            var u = new URL(location.href); u.searchParams.set('v', m[1]); location.replace(u.toString());
+          }
+        }).catch(function(){});
+    } catch(e) {}
+  })();
 </script>
 </body>
 </html>
