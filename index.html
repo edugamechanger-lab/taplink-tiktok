@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta http-equiv="Cache-Control" content="no-cache">
-  <meta name="taplink-build" content="20261113103152">
+  <meta name="taplink-build" content="20261113103423">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#5F5CF2">
@@ -383,13 +383,14 @@ footer span{color:var(--violet)}
         (function(){
           var el = document.getElementById('pr-count'); if (!el) return;
           var now = Date.now(), MSK = 3*36e5,
-              d1 = Date.UTC(2026,10,1,9,0), d2 = Date.UTC(2026,10,8,9,0);
+              d1 = Date.UTC(2026,10,1,9,0), d2 = Date.UTC(2026,10,8,9,0), d3 = Date.UTC(2026,10,15,21,0);  /* записи до 15 ноября 23:59 мск */
           function day(t){ return Math.floor((t + MSK) / 864e5); }
           function word(n){ var a=n%10,b=n%100; return (a===1&&b!==11)?'день':(a>=2&&a<=4&&(b<12||b>14))?'дня':'дней'; }
           var txt, n = day(d1) - day(now);
           if (now < d1) txt = n === 0 ? 'Старт сегодня в 12:00 мск' : n === 1 ? 'Старт завтра' : 'Старт через ' + n + ' ' + word(n);
           else if (now < d2) txt = 'Второе занятие 8 ноября';
-          else txt = 'Доступны записи';
+          else if (now < d3) txt = 'Записи доступны до 15 ноября';
+          else { var box = el.closest('.practicum'); if (box) box.remove(); return; }  /* после 15.11 плашка пропадает сама */
           el.textContent = txt; el.hidden = false;
         })();
       </script>
@@ -598,7 +599,7 @@ footer span{color:var(--violet)}
   /* Встроенные браузеры (TikTok, Instagram) держат старую копию страницы.
      Сверяем номер сборки с сервером; если вышла новая, перезагружаемся. */
   (function(){
-    var BUILD = '20261113103152';  /* номер сборки, тот же, что в meta taplink-build */
+    var BUILD = '20261113103423';  /* номер сборки, тот же, что в meta taplink-build */
     try {
       fetch(location.pathname + '?nocache=' + Date.now(), {cache:'no-store'})
         .then(function(r){ return r.ok ? r.text() : ''; })
