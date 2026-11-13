@@ -56,7 +56,14 @@ LESSON_CARDS = ['halloween','map','five','imaginarium','millionaire','time','hom
 # у каждой площадки своя ссылка на бота: practicum='...' в PLATFORMS (False = плашки нет)
 
 # ---------- ВИДЕОУРОК НА YOUTUBE (плашка под практикумом, во всех таплинках; None = убрать) ----------
-VIDEO_ID = 'STZqrAr_ktE'
+VIDEOS = [  # сверху вниз; пустой список = плашек нет
+  dict(id='neJI9_oUnAM', tag='Видеообзор · YouTube · 9 минут',
+       title='80+ ИИ-инструментов для учителя в одном сервисе',
+       desc='Самые полезные функции: планы уроков, рабочие листы, тесты и задания под разный уровень учеников. С чего начать, чтобы не тратить часы на изучение.'),
+  dict(id='STZqrAr_ktE', tag='Бесплатный видеоурок · YouTube',
+       title='Целый урок из одной страницы учебника',
+       desc='Загружаете фото страницы в бесплатную нейросеть Qwen и получаете план, объяснение, задания и мини-игру. А потом превращаете все в интерактив. Пошагово, чтобы повторить со своей темой.'),
+]
 
 # ---------- ПЛОЩАДКИ ----------
 # cards: порядок карточек; tg: ссылки для карточек, ведущих сразу в Telegram
@@ -129,6 +136,8 @@ def build(src, out_dir):
     here = os.path.dirname(os.path.abspath(__file__))
     t = open(os.path.join(here, 'template.html'), encoding='utf-8').read()
     neu = open(os.path.join(here, 'neuroom.html'), encoding='utf-8').read()
+    vt = open(os.path.join(here, 'video.html'), encoding='utf-8').read()
+    chem = open(os.path.join(here, 'chem.html'), encoding='utf-8').read()
     P = PLATFORMS[src]
     pr = open(os.path.join(here, 'practicum.html'), encoding='utf-8').read().replace(
         '{{PRACTICUM_URL}}', P.get('practicum') or '')
@@ -152,9 +161,9 @@ def build(src, out_dir):
              .replace('{{CHANNEL}}', P['channel'])
              .replace('{{BUILD}}', BUILD_ID)
              .replace('{{PRACTICUM}}', pr if P.get('practicum') else '')
-             .replace('{{VIDEO}}', open(os.path.join(here, 'video.html'), encoding='utf-8').read()
-                      .replace('{{VIDEO_URL}}', 'https://youtu.be/' + VIDEO_ID).replace('{{VIDEO_ID}}', VIDEO_ID) if VIDEO_ID else '')
-             .replace('{{NEUROOM}}', neu if P['neuroom'] else '')
+             .replace('{{VIDEO}}', ''.join(vt.replace('{{VIDEO_URL}}', 'https://youtu.be/' + x['id']).replace('{{VIDEO_ID}}', x['id'])
+                      .replace('{{V_TAG}}', x['tag']).replace('{{V_TITLE}}', x['title']).replace('{{V_DESC}}', x['desc']) for x in VIDEOS))
+             .replace('{{NEUROOM}}', (neu + chem) if P['neuroom'] else '')
              .replace('/* ---------- TELEGRAM ---------- */', EXTRA_CSS.strip() + '\n\n/* ---------- TELEGRAM ---------- */', 1))
     assert '{{' not in html
     os.makedirs(out_dir, exist_ok=True)
