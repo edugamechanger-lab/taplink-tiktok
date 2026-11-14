@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta http-equiv="Cache-Control" content="no-cache">
-  <meta name="taplink-build" content="20261113103423">
+  <meta name="taplink-build" content="20261114103004">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#5F5CF2">
@@ -175,6 +175,12 @@ h1 span{display:block;color:var(--violet)}
 .pr-btn:hover{transform:rotate(0) translateY(-2px);background:#fff}
 .pr-btn:focus-visible{outline:3px solid #fff;outline-offset:4px}
 .pr-note{position:relative;margin-top:12px;font-size:13px;color:#d6d4ff}
+
+/* ---------- ТАБЛИЦА В TELEGRAM ---------- */
+.service-table{border-color:var(--violet-soft);box-shadow:0 10px 26px rgba(95,92,242,.18)}
+.service-table .s-icon{background:var(--violet-bg);color:var(--violet)}
+.service-table .s-tag{color:var(--violet)}
+.service-table .s-btn{background:var(--violet)}
 
 /* ---------- СЕРВИС: ХИМИЯ И БИОЛОГИЯ ---------- */
 .service-chem{border-color:#7fd1b0;box-shadow:0 10px 26px rgba(54,139,123,.2)}
@@ -423,21 +429,21 @@ footer span{color:var(--violet)}
         </span>
       </a>
 
-      <!-- ===== СЕРВИС ДЛЯ РЕПЕТИТОРОВ: SECREP (раньше здесь был Нейрум) ===== -->
-      <div class="service">
+      <!-- ===== ТАБЛИЦА В TELEGRAM: ЧТО РЕАЛЬНО ВЛИЯЕТ НА РЕЗУЛЬТАТЫ УЧЕНИКОВ ===== -->
+      <div class="service service-table">
         <span class="s-icon" aria-hidden="true">
           <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="5" width="22" height="19" rx="3" fill="#ffe3a0"/>
-            <path d="M3 10h22M9 3v4M19 3v4"/>
-            <path d="M8 15l2 2 4-4"/><path d="M17 15h4M17 19h3"/>
+            <rect x="3" y="4" width="22" height="20" rx="3" fill="#e1e0ff"/>
+            <path d="M3 10h22M3 16h22M11 4v20"/>
+            <path d="M15 7h6" stroke-width="2.4"/>
           </svg>
         </span>
         <div class="s-copy">
-          <div class="s-tag">Сервис для репетиторов</div>
-          <h3>Вся работа репетитора в одном месте</h3>
-          <p>В Secrep ученики, расписание с самозаписью, домашние задания с файлами, учет оплат и своя страница преподавателя. Все это в бесплатном тарифе.</p>
+          <div class="s-tag">Бесплатная таблица · Telegram</div>
+          <h3>Что реально влияет на результаты учеников</h3>
+          <p>Самые рабочие факторы из масштабного исследования, где разобрано больше 130 факторов: от самых сильных до почти бесполезных. Чтобы сразу внедрить в свою работу.</p>
         </div>
-        <a class="s-btn" href="https://secrep.ru/teacher_overview.html" target="_blank" rel="noopener noreferrer">Посмотреть сервис ↗</a>
+        <a class="s-btn" href="https://t.me/margoiai/250" target="_blank" rel="noopener noreferrer">Забрать таблицу ↗</a>
       </div>
 
       <!-- ===== СЕРВИС ДЛЯ ХИМИИ И БИОЛОГИИ: ШКОЛА ХИМИИ ЕКАТЕРИНЫ КОРСАКОВОЙ ===== -->
@@ -599,7 +605,7 @@ footer span{color:var(--violet)}
   /* Встроенные браузеры (TikTok, Instagram) держат старую копию страницы.
      Сверяем номер сборки с сервером; если вышла новая, перезагружаемся. */
   (function(){
-    var BUILD = '20261113103423';  /* номер сборки, тот же, что в meta taplink-build */
+    var BUILD = '20261114103004';  /* номер сборки, тот же, что в meta taplink-build */
     try {
       fetch(location.pathname + '?nocache=' + Date.now(), {cache:'no-store'})
         .then(function(r){ return r.ok ? r.text() : ''; })

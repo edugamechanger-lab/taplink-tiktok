@@ -72,7 +72,7 @@ PLATFORMS = {
   'tiktok': dict(repo='taplink-tiktok',
       monster='https://t.me/EdhackMargo_bot?start=dl-1792922701a5f233ef4024',
       channel='https://t.me/+o4L5wq8P-pNlMWZi',
-      neuroom=True,
+      neuroom=True,   # плашка «химия и биология» только здесь
       practicum='https://t.me/EdhackMargo_bot?start=dl-1792672868157bf8b026c1',
       cards=LESSON_CARDS,
       hidden=[],
@@ -135,7 +135,7 @@ BUILD_ID = time.strftime('%Y%m%d%H%M%S')
 def build(src, out_dir):
     here = os.path.dirname(os.path.abspath(__file__))
     t = open(os.path.join(here, 'template.html'), encoding='utf-8').read()
-    neu = open(os.path.join(here, 'neuroom.html'), encoding='utf-8').read()
+    table = open(os.path.join(here, 'table.html'), encoding='utf-8').read()
     vt = open(os.path.join(here, 'video.html'), encoding='utf-8').read()
     chem = open(os.path.join(here, 'chem.html'), encoding='utf-8').read()
     P = PLATFORMS[src]
@@ -163,7 +163,7 @@ def build(src, out_dir):
              .replace('{{PRACTICUM}}', pr if P.get('practicum') else '')
              .replace('{{VIDEO}}', ''.join(vt.replace('{{VIDEO_URL}}', 'https://youtu.be/' + x['id']).replace('{{VIDEO_ID}}', x['id'])
                       .replace('{{V_TAG}}', x['tag']).replace('{{V_TITLE}}', x['title']).replace('{{V_DESC}}', x['desc']) for x in VIDEOS))
-             .replace('{{NEUROOM}}', (neu + chem) if P['neuroom'] else '')
+             .replace('{{NEUROOM}}', table + (chem if P['neuroom'] else ''))
              .replace('/* ---------- TELEGRAM ---------- */', EXTRA_CSS.strip() + '\n\n/* ---------- TELEGRAM ---------- */', 1))
     assert '{{' not in html
     os.makedirs(out_dir, exist_ok=True)
