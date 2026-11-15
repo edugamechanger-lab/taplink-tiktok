@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta http-equiv="Cache-Control" content="no-cache">
-  <meta name="taplink-build" content="20261114103004">
+  <meta name="taplink-build" content="20261115100508">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#5F5CF2">
@@ -605,7 +605,7 @@ footer span{color:var(--violet)}
   /* Встроенные браузеры (TikTok, Instagram) держат старую копию страницы.
      Сверяем номер сборки с сервером; если вышла новая, перезагружаемся. */
   (function(){
-    var BUILD = '20261114103004';  /* номер сборки, тот же, что в meta taplink-build */
+    var BUILD = '20261115100508';  /* номер сборки, тот же, что в meta taplink-build */
     try {
       fetch(location.pathname + '?nocache=' + Date.now(), {cache:'no-store'})
         .then(function(r){ return r.ok ? r.text() : ''; })

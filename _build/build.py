@@ -72,7 +72,7 @@ PLATFORMS = {
   'tiktok': dict(repo='taplink-tiktok',
       monster='https://t.me/EdhackMargo_bot?start=dl-1792922701a5f233ef4024',
       channel='https://t.me/+o4L5wq8P-pNlMWZi',
-      neuroom=True,   # плашка «химия и биология» только здесь
+      neuroom=True,   # плашка «химия и биология»
       practicum='https://t.me/EdhackMargo_bot?start=dl-1792672868157bf8b026c1',
       cards=LESSON_CARDS,
       hidden=[],
@@ -94,7 +94,7 @@ PLATFORMS = {
   'youtube': dict(repo='taplink-youtube',
       monster='https://t.me/EdhackMargo_bot?start=dl-1792925569736e9f5ed524',
       channel='https://t.me/+hYBj5MtyjL0zMjMy',
-      neuroom=False,
+      neuroom=True,   # плашка «химия и биология»
       practicum='https://t.me/EdhackMargo_bot?start=dl-1793236235442',
       cards=LESSON_CARDS,
       hidden=[],
