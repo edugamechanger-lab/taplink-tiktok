@@ -73,7 +73,7 @@ PLATFORMS = {
       monster='https://t.me/EdhackMargo_bot?start=dl-1792922701a5f233ef4024',
       channel='https://t.me/+o4L5wq8P-pNlMWZi',
       neuroom=True,   # плашка «химия и биология»
-      practicum='https://t.me/EdhackMargo_bot?start=dl-1792672868157bf8b026c1',
+      practicum=False,   # практикум закончился, плашку убрали
       cards=LESSON_CARDS,
       hidden=[],
       tg={'detective':'https://t.me/+4XKcWlmjE700ZjU6',
@@ -84,7 +84,7 @@ PLATFORMS = {
       monster='https://t.me/EdhackMargo_bot?start=dl-1792932694453',
       channel='https://t.me/+7sPl4z8dBiw2YTVi',
       neuroom=False,
-      practicum='https://edhacking.getcourse.ru/vibecoding-interactive-idea?utm_source=instagram&utm_medium=taplink&utm_campaign=ot-idei-do-interaktiva',
+      practicum=False,   # практикум закончился, плашку убрали
       cards=LESSON_CARDS,
       hidden=[],
       tg={'five':'https://t.me/+b4uRO8E9KEBkODky',
@@ -95,7 +95,7 @@ PLATFORMS = {
       monster='https://t.me/EdhackMargo_bot?start=dl-1792925569736e9f5ed524',
       channel='https://t.me/+hYBj5MtyjL0zMjMy',
       neuroom=True,   # плашка «химия и биология»
-      practicum='https://t.me/EdhackMargo_bot?start=dl-1793236235442',
+      practicum=False,   # практикум закончился, плашку убрали
       cards=LESSON_CARDS,
       hidden=[],
       tg={'imaginarium':'https://t.me/+yrpe1eRi3tw4NjIy',

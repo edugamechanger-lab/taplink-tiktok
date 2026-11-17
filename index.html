@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta http-equiv="Cache-Control" content="no-cache">
-  <meta name="taplink-build" content="20261115100508">
+  <meta name="taplink-build" content="20261117081334">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#5F5CF2">
@@ -366,41 +366,6 @@ footer span{color:var(--violet)}
         </div>
       </div>
 
-      <!-- ===== ПРАКТИКУМ «ОТ ИДЕИ ДО ИНТЕРАКТИВА» ===== -->
-      <div class="practicum">
-        <span class="d" aria-hidden="true" style="right:18px;top:16px;width:40px;height:40px;color:#F6C760"><svg><use href="#sparkle"/></svg></span>
-        <span class="d" aria-hidden="true" style="right:-16px;bottom:-10px;width:110px;height:76px;color:rgba(255,255,255,.18)"><svg><use href="#squiggle"/></svg></span>
-        <div class="pr-top">
-          <span class="pr-badge">Практикум · 1 и 8 ноября</span>
-          <span class="pr-count" id="pr-count" hidden></span>
-        </div>
-        <h3>От идеи до интерактива</h3>
-        <p class="pr-sub">Двухдневный онлайн-практикум по вайб-кодингу для учителей. Создадите свои интерактивы для уроков с помощью ИИ, даже если никогда не писали код.</p>
-        <ul class="pr-list">
-          <li><b>Симулятор</b>: ученик меняет параметры и видит последствия</li>
-          <li><b>Квест «Побег из класса»</b> по вашей теме</li>
-          <li><b>Диагностика знаний</b> с наглядными результатами</li>
-          <li><b>Тренажер</b>, который подбирает задания под ошибки ученика</li>
-        </ul>
-        <p class="pr-meta">Zoom, 12:00 мск · записи на полгода · от 2 500 ₽</p>
-        <a class="pr-btn" href="https://t.me/EdhackMargo_bot?start=dl-1792672868157bf8b026c1" target="_blank" rel="noopener noreferrer">Узнать подробнее ↗</a>
-      </div>
-      <script>
-        (function(){
-          var el = document.getElementById('pr-count'); if (!el) return;
-          var now = Date.now(), MSK = 3*36e5,
-              d1 = Date.UTC(2026,10,1,9,0), d2 = Date.UTC(2026,10,8,9,0), d3 = Date.UTC(2026,10,15,21,0);  /* записи до 15 ноября 23:59 мск */
-          function day(t){ return Math.floor((t + MSK) / 864e5); }
-          function word(n){ var a=n%10,b=n%100; return (a===1&&b!==11)?'день':(a>=2&&a<=4&&(b<12||b>14))?'дня':'дней'; }
-          var txt, n = day(d1) - day(now);
-          if (now < d1) txt = n === 0 ? 'Старт сегодня в 12:00 мск' : n === 1 ? 'Старт завтра' : 'Старт через ' + n + ' ' + word(n);
-          else if (now < d2) txt = 'Второе занятие 8 ноября';
-          else if (now < d3) txt = 'Записи доступны до 15 ноября';
-          else { var box = el.closest('.practicum'); if (box) box.remove(); return; }  /* после 15.11 плашка пропадает сама */
-          el.textContent = txt; el.hidden = false;
-        })();
-      </script>
-
       <!-- ===== ВИДЕО НА YOUTUBE: 80+ ИИ-инструментов для учителя в одном сервисе ===== -->
       <a class="video" href="https://youtu.be/neJI9_oUnAM" target="_blank" rel="noopener noreferrer">
         <span class="v-thumb" aria-hidden="true">
@@ -605,7 +570,7 @@ footer span{color:var(--violet)}
   /* Встроенные браузеры (TikTok, Instagram) держат старую копию страницы.
      Сверяем номер сборки с сервером; если вышла новая, перезагружаемся. */
   (function(){
-    var BUILD = '20261115100508';  /* номер сборки, тот же, что в meta taplink-build */
+    var BUILD = '20261117081334';  /* номер сборки, тот же, что в meta taplink-build */
     try {
       fetch(location.pathname + '?nocache=' + Date.now(), {cache:'no-store'})
         .then(function(r){ return r.ok ? r.text() : ''; })
