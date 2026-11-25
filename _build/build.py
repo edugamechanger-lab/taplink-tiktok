@@ -74,6 +74,7 @@ PLATFORMS = {
       channel='https://t.me/+o4L5wq8P-pNlMWZi',
       neuroom=True,   # плашка «химия и биология»
       practicum=False,   # практикум закончился, плашку убрали
+      blackfriday='https://t.me/EdhackMargo_bot?start=dl-1795594158f06b5902a1fb',
       cards=LESSON_CARDS,
       hidden=[],
       tg={'detective':'https://t.me/+4XKcWlmjE700ZjU6',
@@ -85,6 +86,7 @@ PLATFORMS = {
       channel='https://t.me/+7sPl4z8dBiw2YTVi',
       neuroom=False,
       practicum=False,   # практикум закончился, плашку убрали
+      blackfriday='https://edhacking.getcourse.ru/black-friday-2026?utm_source=instagram&utm_medium=taplink&utm_campaign=black-friday-2026',
       cards=LESSON_CARDS,
       hidden=[],
       tg={'five':'https://t.me/+b4uRO8E9KEBkODky',
@@ -96,6 +98,7 @@ PLATFORMS = {
       channel='https://t.me/+hYBj5MtyjL0zMjMy',
       neuroom=True,   # плашка «химия и биология»
       practicum=False,   # практикум закончился, плашку убрали
+      blackfriday='https://t.me/EdhackMargo_bot?start=dl-179559421708c062fa68f7',
       cards=LESSON_CARDS,
       hidden=[],
       tg={'imaginarium':'https://t.me/+yrpe1eRi3tw4NjIy',
@@ -138,9 +141,11 @@ def build(src, out_dir):
     table = open(os.path.join(here, 'table.html'), encoding='utf-8').read()
     vt = open(os.path.join(here, 'video.html'), encoding='utf-8').read()
     chem = open(os.path.join(here, 'chem.html'), encoding='utf-8').read()
+    bf = open(os.path.join(here, 'bf.html'), encoding='utf-8').read()
     P = PLATFORMS[src]
     pr = open(os.path.join(here, 'practicum.html'), encoding='utf-8').read().replace(
         '{{PRACTICUM_URL}}', P.get('practicum') or '')
+    bf_block = bf.replace('{{BF_URL}}', P.get('blackfriday') or '') if P.get('blackfriday') else ''
     P = PLATFORMS[src]
     shown, hidden = [], []
     for k in P['cards']:
@@ -157,6 +162,7 @@ def build(src, out_dir):
            + '\n\n'.join(shown) + ('\n\n' + '\n'.join(hidden) if hidden else '')
            + '\n\n      </nav>')
     html = (t.replace('{{CARDS}}', nav)
+             .replace('{{BLACKFRIDAY}}', bf_block)
              .replace('{{MONSTER}}', P['monster'])
              .replace('{{CHANNEL}}', P['channel'])
              .replace('{{BUILD}}', BUILD_ID)

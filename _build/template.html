@@ -176,6 +176,25 @@ h1 span{display:block;color:var(--violet)}
 .pr-btn:focus-visible{outline:3px solid #fff;outline-offset:4px}
 .pr-note{position:relative;margin-top:12px;font-size:13px;color:#d6d4ff}
 
+/* ---------- ЧЁРНАЯ ПЯТНИЦА ---------- */
+.bf{
+  position:relative;overflow:hidden;background:linear-gradient(165deg,#1E1B57 0%,#121031 100%);color:#fff;border-radius:32px;
+  padding:30px 32px;margin:0 0 28px;box-shadow:0 18px 40px rgba(18,16,49,.45);border:1px solid rgba(165,162,247,.25)
+}
+.bf-top{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.bf-badge{background:var(--yellow);color:var(--navy);font-weight:800;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;padding:7px 12px;border-radius:10px;transform:rotate(-2deg)}
+.bf-dates{background:rgba(165,162,247,.18);color:#d6d4ff;font-weight:700;font-size:13px;padding:7px 12px;border-radius:10px;transform:rotate(1.5deg)}
+.bf h3{position:relative;font-weight:800;font-size:clamp(26px,4.4vw,36px);line-height:1.1;letter-spacing:-.8px;margin:16px 0 10px}
+.bf h3 b{color:var(--yellow)}
+.bf-sub{position:relative;color:#d6d4ff;font-size:16px;max-width:620px}
+.bf-list{position:relative;list-style:none;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:18px 0 16px}
+.bf-list li{background:rgba(255,255,255,.08);border-radius:14px;padding:11px 14px;font-size:14px;line-height:1.4;color:#e8e7ff}
+.bf-list b{color:#fff}
+.bf-meta{position:relative;font-size:14px;color:#a5a2f7}
+.bf-btn{position:relative;display:inline-block;margin-top:18px;background:var(--yellow);color:var(--navy);text-decoration:none;font-weight:800;font-size:17px;padding:15px 26px;border-radius:16px;transform:rotate(-1.5deg);transition:.18s;box-shadow:0 10px 22px rgba(0,0,0,.35)}
+.bf-btn:hover{transform:rotate(0) translateY(-2px);background:#fff}
+.bf-btn:focus-visible{outline:3px solid #fff;outline-offset:4px}
+
 /* ---------- ТАБЛИЦА В TELEGRAM ---------- */
 .service-table{border-color:var(--violet-soft);box-shadow:0 10px 26px rgba(95,92,242,.18)}
 .service-table .s-icon{background:var(--violet-bg);color:var(--violet)}
@@ -245,6 +264,9 @@ footer span{color:var(--violet)}
   .v-btn{align-self:stretch;text-align:center}
   .pr-list{grid-template-columns:1fr}
   .pr-btn{display:block;text-align:center}
+  .bf{padding:24px 20px;border-radius:28px}
+  .bf-list{grid-template-columns:1fr}
+  .bf-btn{display:block;text-align:center}
   .service{flex-wrap:wrap;align-items:flex-start;padding:18px;gap:14px;margin-top:-28px}
   .service h3{font-size:18px}
   .s-btn{transform:rotate(.8deg)}
@@ -310,7 +332,7 @@ footer span{color:var(--violet)}
 
     <div class="wrap">
 
-      <!-- ===== МОНСТРИК: видеоурок через бота ===== -->
+{{BLACKFRIDAY}}      <!-- ===== МОНСТРИК: видеоурок через бота ===== -->
       <div class="feature">
         <div class="monster-wrap" aria-hidden="true">
           <svg class="monster" viewBox="0 0 220 220">
