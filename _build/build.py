@@ -75,6 +75,7 @@ PLATFORMS = {
       neuroom=True,   # плашка «химия и биология»
       practicum=False,   # практикум закончился, плашку убрали
       blackfriday='https://t.me/EdhackMargo_bot?start=dl-1795594158f06b5902a1fb',
+      videopromo='https://t.me/EdhackMargo_bot?start=dl-1795701836707',   # «4 вещи за новую четверть»
       cards=LESSON_CARDS,
       hidden=[],
       tg={'detective':'https://t.me/+4XKcWlmjE700ZjU6',
@@ -87,6 +88,7 @@ PLATFORMS = {
       neuroom=False,
       practicum=False,   # практикум закончился, плашку убрали
       blackfriday='https://edhacking.getcourse.ru/black-friday-2026?utm_source=instagram&utm_medium=taplink&utm_campaign=black-friday-2026',
+      videopromo=False,   # «4 вещи за новую четверть»: ссылки для Instagram пока нет
       cards=LESSON_CARDS,
       hidden=[],
       tg={'five':'https://t.me/+b4uRO8E9KEBkODky',
@@ -99,6 +101,7 @@ PLATFORMS = {
       neuroom=True,   # плашка «химия и биология»
       practicum=False,   # практикум закончился, плашку убрали
       blackfriday='https://t.me/EdhackMargo_bot?start=dl-179559421708c062fa68f7',
+      videopromo=False,   # «4 вещи за новую четверть»: ссылки для YouTube пока нет
       cards=LESSON_CARDS,
       hidden=[],
       tg={'imaginarium':'https://t.me/+yrpe1eRi3tw4NjIy',
@@ -142,10 +145,12 @@ def build(src, out_dir):
     vt = open(os.path.join(here, 'video.html'), encoding='utf-8').read()
     chem = open(os.path.join(here, 'chem.html'), encoding='utf-8').read()
     bf = open(os.path.join(here, 'bf.html'), encoding='utf-8').read()
+    vp = open(os.path.join(here, 'video-promo.html'), encoding='utf-8').read()
     P = PLATFORMS[src]
     pr = open(os.path.join(here, 'practicum.html'), encoding='utf-8').read().replace(
         '{{PRACTICUM_URL}}', P.get('practicum') or '')
     bf_block = bf.replace('{{BF_URL}}', P.get('blackfriday') or '') if P.get('blackfriday') else ''
+    vp_block = vp.replace('{{VIDEOPROMO_URL}}', P.get('videopromo') or '') if P.get('videopromo') else ''
     P = PLATFORMS[src]
     shown, hidden = [], []
     for k in P['cards']:
@@ -163,6 +168,7 @@ def build(src, out_dir):
            + '\n\n      </nav>')
     html = (t.replace('{{CARDS}}', nav)
              .replace('{{BLACKFRIDAY}}', bf_block)
+             .replace('{{VIDEOPROMO}}', vp_block)
              .replace('{{MONSTER}}', P['monster'])
              .replace('{{CHANNEL}}', P['channel'])
              .replace('{{BUILD}}', BUILD_ID)
