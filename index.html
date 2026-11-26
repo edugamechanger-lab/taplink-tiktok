@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta http-equiv="Cache-Control" content="no-cache">
-  <meta name="taplink-build" content="20261126211326">
+  <meta name="taplink-build" content="20261126211531">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#5F5CF2">
@@ -175,7 +175,7 @@ h1 span{display:block;color:var(--violet)}
 .pr-btn:hover{transform:rotate(0) translateY(-2px);background:#fff}
 .pr-btn:focus-visible{outline:3px solid #fff;outline-offset:4px}
 .pr-note{position:relative;margin-top:12px;font-size:13px;color:#d6d4ff}
-.practicum-compact{padding:24px 28px;max-width:560px}
+.practicum-compact{padding:24px 28px}
 .practicum-compact h3{font-size:clamp(22px,3.6vw,28px);margin:14px 0 8px}
 .practicum-compact .pr-sub{margin-bottom:4px}
 .practicum-compact .pr-btn{margin-top:16px}
@@ -273,7 +273,6 @@ footer span{color:var(--violet)}
   .monster-wrap{width:170px;margin:0 auto}
   .bot-btn{width:100%;justify-content:center}
   .practicum{padding:24px 20px;margin-top:-28px;border-radius:28px}
-  .practicum-compact{max-width:none}
   .video{grid-template-columns:1fr;padding:14px;gap:14px;margin-top:-28px}
   .v-btn{align-self:stretch;text-align:center}
   .pr-list{grid-template-columns:1fr}
@@ -627,7 +626,7 @@ footer span{color:var(--violet)}
   /* Встроенные браузеры (TikTok, Instagram) держат старую копию страницы.
      Сверяем номер сборки с сервером; если вышла новая, перезагружаемся. */
   (function(){
-    var BUILD = '20261126211326';  /* номер сборки, тот же, что в meta taplink-build */
+    var BUILD = '20261126211531';  /* номер сборки, тот же, что в meta taplink-build */
     try {
       fetch(location.pathname + '?nocache=' + Date.now(), {cache:'no-store'})
         .then(function(r){ return r.ok ? r.text() : ''; })
