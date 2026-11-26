@@ -101,7 +101,7 @@ PLATFORMS = {
       neuroom=True,   # плашка «химия и биология»
       practicum=False,   # практикум закончился, плашку убрали
       blackfriday='https://t.me/EdhackMargo_bot?start=dl-179559421708c062fa68f7',
-      videopromo=False,   # «4 вещи за новую четверть»: ссылки для YouTube пока нет
+      videopromo='https://t.me/EdhackMargo_bot?start=dl-1795702801812',   # «Как использовать ИИ учителю. 10 идей»
       cards=LESSON_CARDS,
       hidden=[],
       tg={'imaginarium':'https://t.me/+yrpe1eRi3tw4NjIy',
