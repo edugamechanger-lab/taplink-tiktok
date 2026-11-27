@@ -47,6 +47,10 @@ CARDS = {
       tag='Экономия времени · Telegram', title='5 уроков в 2',
       desc='Подробности в посте в Telegram.',
       icon='<rect x="3" y="5" width="22" height="19" rx="3" fill="#e6f7f1"/><path d="M3 10h22M9 3v4M19 3v4"/><path d="M9 15h3M15 15h4M9 19h3"/>'),
+  'gonka': dict(page=f'{GH}/trenazher-gonka/', cls='card-gonka',
+      tag='Игра на уроке · Тренажёр', title='Тренажёр-гонка',
+      desc='Метапромпт: ИИ за 7 вопросов собирает гонку-тренажёр по вашей теме.',
+      icon='<circle cx="14" cy="14" r="11" fill="#ffd9a0"/><path d="M14 6v3M14 19v3M6 14h3M19 14h3" stroke-width="2.4"/><path d="M9 17l5-9 5 9z" fill="#fff" stroke="#E57F3C"/>'),
 }
 
 # ---------- ИДЕИ ДЛЯ УРОКА: одинаковые на всех площадках ----------
@@ -76,7 +80,7 @@ PLATFORMS = {
       practicum=False,   # практикум закончился, плашку убрали
       blackfriday='https://t.me/EdhackMargo_bot?start=dl-1795594158f06b5902a1fb',
       videopromo='https://t.me/EdhackMargo_bot?start=dl-1795701836707',   # «4 вещи за новую четверть»
-      cards=LESSON_CARDS,
+      cards=LESSON_CARDS + ['gonka'],
       hidden=[],
       tg={'detective':'https://t.me/+4XKcWlmjE700ZjU6',
           'five':'https://t.me/+Kjfa4eD-g3lhNGYy',
@@ -102,7 +106,7 @@ PLATFORMS = {
       practicum=False,   # практикум закончился, плашку убрали
       blackfriday='https://t.me/EdhackMargo_bot?start=dl-179559421708c062fa68f7',
       videopromo='https://t.me/EdhackMargo_bot?start=dl-1795702801812',   # «Как использовать ИИ учителю. 10 идей»
-      cards=LESSON_CARDS,
+      cards=LESSON_CARDS + ['gonka'],
       hidden=[],
       tg={'imaginarium':'https://t.me/+yrpe1eRi3tw4NjIy',
           'five':'https://t.me/+82FbQioWJJQ0NjUy',
@@ -117,6 +121,8 @@ EXTRA_CSS = '''
 .card-million .tag{color:#5e78c3}
 .card-five .icon{background:#e6f7f1;color:#368b7b}
 .card-five .tag{color:#368b7b}
+.card-gonka .icon{background:#fff3e0;color:#E57F3C}
+.card-gonka .tag{color:#E57F3C}
 .card-halloween .icon{background:#fff0e3;color:#c0611f}
 .card-halloween .tag{color:#c0611f}
 '''
